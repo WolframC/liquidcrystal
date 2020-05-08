@@ -455,14 +455,14 @@ void allProperties(char name[]) {
 			             sin(calPhi(u1)) * sin(calPhi(u2)) * pow(dAng, 4);
 			KtInt += tmp;
 			// if (fabs(tmp) > 1e3)
-			printf("%6.6lf %d %6.6lf %6.6lf %6.6lf\n", f[u1], u2phi,
-			       fDer[u2phi], M[0][u1][u2], tmp);
+			// printf("%6.6lf %d %6.6lf %6.6lf %6.6lf\n", f[u1], u2phi,
+			//    fDer[u2phi], M[0][u1][u2], tmp);
 			// res += tmp;
 		}
 		// printf("%lf\n", res);
 	}
 	KtInt *= -.5 * eta;
-	printf("KtInt %6.6lf\n", KtInt);
+	// printf("KtInt %6.6lf\n", KtInt);
 
 	double K2Int = 0;
 	for (int u1 = 0; u1 < pSphere; u1++)
@@ -651,7 +651,7 @@ void mainProcess(int argc, char *argv[]) {
 	// double stepEta = char2num(argv[3]);
 	// 测试之后, 用这个参数
 	double minEta = 0.2;
-	double maxEta = 0.2;
+	double maxEta = 0.3;
 	double stepEta = 0.001;
 	// printf("here%lf", minEta);
 	// read A,V,M data
@@ -913,7 +913,8 @@ int main(int argc, char *argv[]) {
 	interAng = char2num(argv[2]) / 180. * M_PI;
 
 	// 创建数据存储文件夹
-	sprintf(dirname, "DFT/%d%2.1lf/", FCHlen, interAng * 180 / M_PI);
+	// sprintf(dirname, "DFT/%d%2.1lf/", FCHlen, interAng * 180 / M_PI);
+	sprintf(dirname, "DFT/1030u/");
 	char cmd[100];
 	sprintf(cmd, "mkdir -p %s", dirname);
 	system(cmd);
